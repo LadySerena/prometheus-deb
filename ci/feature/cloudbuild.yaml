@@ -1,0 +1,6 @@
+steps:
+  - name: gcr.io/cloud-builders/gradle
+    args:
+      - "build"
+    env:
+      - TAG_NAME=test
