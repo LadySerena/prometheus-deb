@@ -1,0 +1,5 @@
+steps:
+  - name: debian:buster-slim
+    entrypoint: "/bin/echo"
+    args:
+      - "$TAG_NAME"
