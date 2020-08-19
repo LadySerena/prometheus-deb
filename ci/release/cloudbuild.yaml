@@ -4,7 +4,7 @@ steps:
       - 'ORG_GRADLE_PROJECT_version=fake-tag'
     args:
       - 'echo'
-      - '$ORG_GRADLE_PROJECT_version'
+      - '$$ORG_GRADLE_PROJECT_version'
   - name: bash
     args:
       - 'echo'
