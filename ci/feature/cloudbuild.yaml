@@ -1,6 +1,11 @@
 steps:
-  - name: gcr.io/cloud-builders/gradle
-    args:
-      - "build"
+  - name: debian:buster-slim
     env:
-      - TAG_NAME=test
+      - TAG_NAME=fake-tag
+    entrypoint: "/bin/echo"
+    args:
+      - "$TAG_NAME"
+  - name: debian:buster-slim
+    entrypoint: "/bin/echo"
+    args:
+      - "$TAG_NAME"
