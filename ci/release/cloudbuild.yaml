@@ -1,10 +1,10 @@
 steps:
   - name: debian:buster-slim
     env:
-      - TAG_NAME=fake-tag
+      - 'ORG_GRADLE_PROJECT_version=fake-tag'
     entrypoint: "/bin/echo"
     args:
-      - "$TAG_NAME"
+      - "$ORG_GRADLE_PROJECT_version"
   - name: debian:buster-slim
     entrypoint: "/bin/echo"
     args:
