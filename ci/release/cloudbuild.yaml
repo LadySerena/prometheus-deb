@@ -1,7 +1,7 @@
 steps:
   - name: debian:buster-slim
     env:
-      - TAG_NAME="fake-tag"
+      - TAG_NAME=fake-tag
     entrypoint: "/bin/echo"
     args:
       - "$TAG_NAME"
