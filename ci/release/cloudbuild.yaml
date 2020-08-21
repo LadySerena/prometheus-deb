@@ -1,11 +1,12 @@
 steps:
-  - name: bash
-    env:
-      - 'ORG_GRADLE_PROJECT_version=fake-tag'
+  - name: gcr.io/cloud-builders/gradle
+    entrypoint: bash
     args:
-      - 'echo'
-      - '$$ORG_GRADLE_PROJECT_version'
+      - "./gradlew"
+      - "build"
+      - "-Ppackage_version=$TAG_NAME"
   - name: bash
     args:
-      - 'echo'
-      - '$TAG_NAME'
+      - 'ls'
+      - '-alh'
+      - './build/distributions'
