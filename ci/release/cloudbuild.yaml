@@ -4,7 +4,7 @@ steps:
     args:
       - "./gradlew"
       - "build"
-      - "-Ppackage_version=$TAG_NAME"
+      - "-Ptag=$TAG_NAME"
   - name: bash
     args:
       - 'ls'

@@ -9,6 +9,13 @@ plugins {
     id 'de.undercouch.download' version '4.0.1'
 }
 
+if(tag != "1-fake"){
+    def extractRelease = { it.split("-")}
+    def full_version = extractRelease(tag)
+    package_version = full_version[0]
+    package_release = full_version[1]
+}
+
 task downloadPrometheusTar(type: Download) {
     src prometheus_download_url
     dest buildDir
@@ -25,7 +32,7 @@ task buildPrometheus(type: Deb) {
     dependsOn untarArchive
     packageName 'prometheus'
     version package_version
-    release '1'
+    release package_release
     arch "amd64"
     preInstall file('scripts/preInstall.sh')
     postInstall file('scripts/postInstall.sh')
