@@ -17,7 +17,7 @@ if(tag != "1-fake"){
 }
 
 task downloadPrometheusTar(type: Download) {
-    src prometheus_download_url
+    src "${prometheus_release_url}/v${prometheus_version}/prometheus-${prometheus_version}.linux-amd64.tar.gz"
     dest buildDir
     overwrite false
 }
