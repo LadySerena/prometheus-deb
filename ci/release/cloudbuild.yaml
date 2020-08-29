@@ -5,8 +5,12 @@ steps:
       - "./gradlew"
       - "build"
       - "-Ptag=$TAG_NAME"
-  - name: bash
+  - name: google/cloud-sdk
+    entrypoint: gsutil
     args:
-      - 'ls'
-      - '-alh'
-      - './build/distributions'
+      - "cp"
+      - "build/distributions/${_PACKAGE_NAME}_${TAG_NAME}_amd64.deb"
+      - "gs://$_BUCKET/"
+substitutions:
+  _BUCKET: tel-us-deb-repo
+  _PACKAGE_NAME: prometheus
